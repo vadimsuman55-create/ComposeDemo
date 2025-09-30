@@ -26,3 +26,30 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Composable
+fun DemoText(message: String, fontSize: Float) {
+    Text(
+        text = message,
+        fontSize = fontSize.sp,
+        fontWeight = FontWeight.Bold
+    )
+}
+
+@Preview
+@Composable
+fun DemoTextPreview() {
+    ComposeDemoTheme {
+        DemoText(message = "Welcome to Android", fontSize = 12f)
+    }
+}
+
+@Composable
+fun DemoSlider(sliderPosition: Float, onPositionChange: (Float) -> Unit ) {
+    Slider(
+        modifier = Modifier.padding(10.dp),
+        valueRange = 20f..38f,
+        value = sliderPosition,
+        onValueChange = { onPositionChange(it) }
+    )
+}
